@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kathmandu Fresh Jobs Portal 2026</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--primary:#2563eb;
+--secondary:#7c3aed;
+--success:#10b981;
+--danger:#ef4444;
+--warning:#f59e0b;
+
+--bg:#f5f7ff;
+--card:#ffffff;
+--text:#111827;
+--border:#e5e7eb;
+
+--shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.dark{
+--bg:#0f172a;
+--card:#1e293b;
+--text:#f8fafc;
+--border:#334155;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:var(--bg);
+color:var(--text);
+transition:.4s;
+overflow-x:hidden;
+}
+
+/* LOADER */
+
+.loader{
+position:fixed;
+inset:0;
+background:#0f172a;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:9999;
+}
+
+.loader h1{
+color:white;
+font-size:2rem;
+animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+50%{opacity:.4;}
+}
+
+/* NAVBAR */
+
+nav{
+position:sticky;
+top:0;
+z-index:1000;
+backdrop-filter:blur(20px);
+background:rgba(255,255,255,.1);
+border-bottom:1px solid rgba(255,255,255,.2);
+padding:15px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:1.5rem;
+font-weight:800;
+background:linear-gradient(45deg,var(--primary),var(--secondary));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.nav-actions{
+display:flex;
+gap:10px;
+}
+
+.btn{
+border:none;
+padding:10px 18px;
+border-radius:10px;
+cursor:pointer;
+font-weight:600;
+transition:.3s;
+}
+
+.theme-btn{
+background:var(--card);
+color:var(--text);
+box-shadow:var(--shadow);
+}
+
+/* HERO */
+
+.hero{
+padding:80px 5%;
+text-align:center;
+}
+
+.hero h1{
+font-size:3rem;
+font-weight:800;
+margin-bottom:20px;
+background:linear-gradient(45deg,#2563eb,#7c3aed);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+max-width:900px;
+margin:auto;
+line-height:1.8;
+}
+
+/* STATS */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+padding:30px 5%;
+}
+
+.stat{
+background:var(--card);
+padding:25px;
+border-radius:20px;
+box-shadow:var(--shadow);
+text-align:center;
+}
+
+.stat h2{
+color:var(--primary);
+}
+
+/* ELIGIBILITY */
+
+.section{
+padding:60px 5%;
+}
+
+.section-title{
+font-size:2rem;
+margin-bottom:25px;
+font-weight:700;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:var(--card);
+padding:25px;
+border-radius:20px;
+box-shadow:var(--shadow);
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card ul{
+padding-left:20px;
+line-height:2;
+}
+
+/* FILTERS */
+
+.filters{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:25px;
+}
+
+.search{
+flex:1;
+min-width:250px;
+padding:14px;
+border-radius:12px;
+border:1px solid var(--border);
+background:var(--card);
+color:var(--text);
+}
+
+.filter-btn{
+background:var(--primary);
+color:white;
+}
+
+/* JOB CARDS */
+
+.jobs-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
+}
+
+.job-card{
+background:var(--card);
+padding:20px;
+border-radius:20px;
+box-shadow:var(--shadow);
+}
+
+.job-card h3{
+margin-bottom:10px;
+}
+
+.job-card p{
+margin:6px 0;
+}
+
+.apply-btn{
+margin-top:15px;
+width:100%;
+background:var(--success);
+color:white;
+}
+
+.booked{
+background:var(--danger)!important;
+}
+
+/* TABLE */
+
+.table-container{
+overflow:auto;
+margin-top:40px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:var(--card);
+border-radius:20px;
+overflow:hidden;
+box-shadow:var(--shadow);
+}
+
+th{
+background:var(--primary);
+color:white;
+}
+
+th,td{
+padding:14px;
+text-align:left;
+border-bottom:1px solid var(--border);
+}
+
+tr:hover{
+background:rgba(37,99,235,.05);
+}
+
+/* FOOTER */
+
+footer{
+margin-top:70px;
+background:#020617;
+color:white;
+padding:40px 5%;
+text-align:center;
+}
+
+footer h3{
+margin-bottom:10px;
+}
+
+footer p{
+opacity:.8;
+line-height:1.8;
+}
+
+/* TOP BUTTON */
+
+.topBtn{
+position:fixed;
+right:20px;
+bottom:20px;
+background:var(--primary);
+color:white;
+border:none;
+width:50px;
+height:50px;
+border-radius:50%;
+cursor:pointer;
+display:none;
+font-size:20px;
+}
+
+/* TOAST */
+
+.toast{
+position:fixed;
+top:20px;
+right:20px;
+background:var(--success);
+color:white;
+padding:15px 20px;
+border-radius:10px;
+display:none;
+z-index:999;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:2rem;
+}
+
+table{
+font-size:13px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="loader" id="loader">
+<h1>Loading Jobs Portal...</h1>
+</div>
+
+<div class="toast" id="toast">
+Redirecting to Apply Page...
+</div>
+
+<nav>
+<div class="logo">Global Career Connect Nepal</div>
+
+<div class="nav-actions">
+<button class="btn theme-btn" onclick="toggleTheme()">🌙 Theme</button>
+</div>
+</nav>
+
+<section class="hero">
+<h1>Kathmandu Freshers Jobs Portal 2026</h1>
+
+<p>
+Find the latest office, customer service, receptionist, hotel, data entry,
+computer operator, call center, marketing, sales and e-commerce jobs across Kathmandu.
+Designed for students, freshers and career changers.
+</p>
+</section>
+
+<section class="stats">
+
+<div class="stat">
+<h2>60+</h2>
+<p>Active Jobs</p>
+</div>
+
+<div class="stat">
+<h2>30+</h2>
+<p>Available Jobs</p>
+</div>
+
+<div class="stat">
+<h2>20+</h2>
+<p>Companies</p>
+</div>
+
+<div class="stat">
+<h2>2026</h2>
+<p>Latest Openings</p>
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">👥 Who Can Apply?</h2>
+
+<div class="grid">
+
+<div class="card">
+<ul>
+<li>✅ Boys can apply</li>
+<li>✅ Girls can apply</li>
+<li>✅ Freshers Welcome</li>
+<li>✅ Students</li>
+<li>✅ Career Changers</li>
+</ul>
+</div>
+
+<div class="card">
+<ul>
+<li>🎓 SEE Pass</li>
+<li>🎓 +2 Pass</li>
+<li>🎓 Bachelor Preferred</li>
+<li>💻 Basic Computer Skills</li>
+<li>🗣 Communication Skills</li>
+</ul>
+</div>
+
+<div class="card">
+<ul>
+<li>Data Entry</li>
+<li>Computer Operator</li>
+<li>Office Assistant</li>
+<li>E-Commerce Jobs</li>
+<li>Receptionist</li>
+</ul>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">🔥 Featured Jobs</h2>
+
+<div class="filters">
+<input type="text" id="searchInput" class="search" placeholder="Search jobs...">
+
+<button class="btn filter-btn" onclick="filterJobs('all')">All</button>
+<button class="btn filter-btn" onclick="filterJobs('apply')">Available</button>
+<button class="btn filter-btn" onclick="filterJobs('booked')">Booked</button>
+</div>
+
+<div class="jobs-grid" id="jobsGrid">
+
+<div class="job-card apply">
+<h3>Office Assistant</h3>
+<p>💰 NPR 22,000–28,000</p>
+<p>📍 New Baneshwor</p>
+<p>🕘 9 AM–5 PM</p>
+<button class="btn apply-btn" onclick="applyNow()">Apply Now</button>
+</div>
+
+<div class="job-card apply">
+<h3>Receptionist</h3>
+<p>💰 NPR 25,000–32,000</p>
+<p>📍 Putalisadak</p>
+<p>🕘 9 AM–6 PM</p>
+<button class="btn apply-btn" onclick="applyNow()">Apply Now</button>
+</div>
+
+<div class="job-card booked">
+<h3>Graphic Design Trainee</h3>
+<p>💰 NPR 25,000–35,000</p>
+<p>📍 Putalisadak</p>
+<p>Status: BOOKED</p>
+<button class="btn apply-btn booked">Booked</button>
+</div>
+
+<div class="job-card apply">
+<h3>Computer Operator</h3>
+<p>💰 NPR 27,000–38,000</p>
+<p>📍 Chabahil</p>
+<p>🕘 10 AM–6 PM</p>
+<button class="btn apply-btn" onclick="applyNow()">Apply Now</button>
+</div>
+
+</div>
+
+<div class="table-container">
+
+<table>
+
+<thead>
+<tr>
+<th>#</th>
+<th>Category</th>
+<th>Salary</th>
+<th>Duty Time</th>
+<th>Address</th>
+<th>Status</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>1</td>
+<td>Office Assistant</td>
+<td>22,000–28,000</td>
+<td>9 AM–5 PM</td>
+<td>New Baneshwor</td>
+<td><button class="btn apply-btn" onclick="applyNow()">Apply</button></td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Receptionist</td>
+<td>25,000–32,000</td>
+<td>9 AM–6 PM</td>
+<td>Putalisadak</td>
+<td><button class="btn apply-btn" onclick="applyNow()">Apply</button></td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>Data Entry Operator</td>
+<td>24,000–30,000</td>
+<td>10 AM–6 PM</td>
+<td>Anamnagar</td>
+<td><button class="btn apply-btn" onclick="applyNow()">Apply</button></td>
+</tr>
+
+<tr>
+<td>15</td>
+<td>Graphic Design Trainee</td>
+<td>25,000–35,000</td>
+<td>10 AM–6 PM</td>
+<td>Putalisadak</td>
+<td><button class="btn booked">BOOKED</button></td>
+</tr>
+
+<tr>
+<td>16</td>
+<td>Social Media Assistant</td>
+<td>25,000–40,000</td>
+<td>10 AM–6 PM</td>
+<td>Baneshwor</td>
+<td><button class="btn booked">BOOKED</button></td>
+</tr>
+
+<tr>
+<td>30</td>
+<td>E-Commerce Assistant</td>
+<td>28,000–42,000</td>
+<td>10 AM–6 PM</td>
+<td>Satdobato</td>
+<td><button class="btn apply-btn" onclick="applyNow()">Apply</button></td>
+</tr>
+
+<tr>
+<td>30</td>
+<td>E-Commerce Assistant</td>
+<td>28,000–42,000</td>
+<td>10 AM–6 PM</td>
+<td>Satdobato</td>
+<td><button class="btn apply-btn" onclick="applyNow()">Apply</button></td>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Retail - Shop Assistant</td>
+<td>20,000–25,000</td>
+<td>9 AM–6 PM</td>
+<td>New Road, Kathmandu</td>
+<td><button class="btn apply-btn" onclick="applyNow()">Apply</button></td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Restaurant - Waiter</td>
+<td>18,000–28,000</td>
+<td>10 AM–8 PM</td>
+<td>Thamel, Kathmandu</td>
+<td><button class="btn apply-btn" onclick="applyNow()">Apply</button></td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>Cafe - Barista Trainee</td>
+<td>18,000–25,000</td>
+<td>Shift Basis</td>
+<td>Lazimpat, Kathmandu</td>
+<td><button class="btn apply-btn" onclick="applyNow()">Apply</button></td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>Hotel - Receptionist</td>
+<td>22,000–30,000</td>
+<td>Shift Basis</td>
+<td>Boudha, Kathmandu</td>
+<td><button class="btn apply-btn" onclick="applyNow()">Apply</button></td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>Office - Office Assistant</td>
+<td>20,000–28,000</td>
+<td>9 AM–5 PM</td>
+<td>Putalisadak, Kathmandu</td>
+<td><button class="btn apply-btn" onclick="applyNow()">Apply</button></td>
+</tr>
+
+<tr>
+<td>6</td>
+<td>Customer Service - Call Center Agent</td>
+<td>22,000–35,000</td>
+<td>Shift Basis</td>
+<td>Baneshwor, Kathmandu</td>
+<td><button class="btn apply-btn" onclick="applyNow()">Apply</button></td>
+</tr>
+
+<tr>
+<td>7</td>
+<td>Delivery - Delivery Rider</td>
+<td>25,000–45,000</td>
+<td>Flexible</td>
+<td>Koteshwor, Kathmandu</td>
+<td><button class="btn apply-btn" onclick="applyNow()">Apply</button></td>
+</tr>
+
+<tr>
+<td>8</td>
+<td>Security - Security Guard</td>
+<td>20,000–35,000</td>
+<td>8–12 Hours</td>
+<td>Kalanki, Kathmandu</td>
+<td><button class="btn apply-btn" onclick="applyNow()">Apply</button></td>
+</tr>
+
+<tr>
+<td>9</td>
+<td>Education - Tuition Assistant</td>
+<td>18,000–25,000</td>
+<td>7 AM–2 PM</td>
+<td>Chabahil, Kathmandu</td>
+<td><button class="btn apply-btn" onclick="applyNow()">Apply</button></td>
+</tr>
+
+<tr>
+<td>10</td>
+<td>Retail - Cashier</td>
+<td>20,000–28,000</td>
+<td>9 AM–6 PM</td>
+<td>Maharajgunj, Kathmandu</td>
+<td><button class="btn booked">BOOKED</button></td>
+</tr>
+
+<tr>
+<td>11</td>
+<td>Sales - Sales Representative</td>
+<td>22,000–40,000</td>
+<td>10 AM–6 PM</td>
+<td>Gongabu, Kathmandu</td>
+<td><button class="btn booked">BOOKED</button></td>
+</tr>
+
+<tr>
+<td>12</td>
+<td>Marketing - Marketing Assistant</td>
+<td>22,000–35,000</td>
+<td>9 AM–6 PM</td>
+<td>Kuleshwor, Kathmandu</td>
+<td><button class="btn booked">BOOKED</button></td>
+</tr>
+
+<tr>
+<td>13</td>
+<td>Warehouse - Store Helper</td>
+<td>18,000–30,000</td>
+<td>8 AM–5 PM</td>
+<td>Balaju, Kathmandu</td>
+<td><button class="btn booked">BOOKED</button></td>
+</tr>
+
+<tr>
+<td>14</td>
+<td>Supermarket - Shelf Stocker</td>
+<td>18,000–25,000</td>
+<td>Shift Basis</td>
+<td>Satdobato, Lalitpur</td>
+<td><button class="btn booked">BOOKED</button></td>
+</tr>
+
+<tr>
+<td>15</td>
+<td>Courier - Parcel Assistant</td>
+<td>20,000–30,000</td>
+<td>9 AM–6 PM</td>
+<td>Jawalakhel, Lalitpur</td>
+<td><button class="btn booked">BOOKED</button></td>
+</tr>
+
+<tr>
+<td>16</td>
+<td>Data Entry - Data Entry Operator</td>
+<td>22,000–35,000</td>
+<td>9 AM–5 PM</td>
+<td>Pulchowk, Lalitpur</td>
+<td><button class="btn booked">BOOKED</button></td>
+</tr>
+
+<tr>
+<td>17</td>
+<td>Hospitality - Kitchen Helper</td>
+<td>18,000–25,000</td>
+<td>10 AM–8 PM</td>
+<td>Sanepa, Lalitpur</td>
+<td><button class="btn booked">BOOKED</button></td>
+</tr>
+
+<tr>
+<td>18</td>
+<td>Event - Event Assistant</td>
+<td>20,000–35,000</td>
+<td>Flexible</td>
+<td>Kupondole, Lalitpur</td>
+<td><button class="btn booked">BOOKED</button></td>
+</tr>
+
+<tr>
+<td>19</td>
+<td>Banking - Banking Trainee</td>
+<td>25,000–35,000</td>
+<td>10 AM–5 PM</td>
+<td>Dillibazar, Kathmandu</td>
+<td><button class="btn apply-btn" onclick="applyNow()">Apply</button></td>
+</tr>
+
+<tr>
+<td>20</td>
+<td>IT - Computer Operator</td>
+<td>22,000–35,000</td>
+<td>9 AM–6 PM</td>
+<td>Anamnagar, Kathmandu</td>
+<td><button class="btn apply-btn" onclick="applyNow()">Apply</button></td>
+</tr>
+
+<tr>
+<td>21</td>
+<td>Healthcare - Clinic Receptionist</td>
+<td>22,000–30,000</td>
+<td>9 AM–5 PM</td>
+<td>Sinamangal, Kathmandu</td>
+<td><button class="btn apply-btn" onclick="applyNow()">Apply</button></td>
+</tr>
+
+<tr>
+<td>22</td>
+<td>Beauty - Salon Receptionist</td>
+<td>18,000–25,000</td>
+<td>10 AM–7 PM</td>
+<td>Jorpati, Kathmandu</td>
+<td><button class="btn apply-btn" onclick="applyNow()">Apply</button></td>
+</tr>
+
+<tr>
+<td>23</td>
+<td>Travel - Ticketing Assistant</td>
+<td>22,000–35,000</td>
+<td>9 AM–6 PM</td>
+<td>Gaushala, Kathmandu</td>
+<td><button class="btn apply-btn" onclick="applyNow()">Apply</button></td>
+</tr>
+
+<tr>
+<td>24</td>
+<td>NGO - Field Assistant</td>
+<td>22,000–40,000</td>
+<td>9 AM–5 PM</td>
+<td>Balkhu, Kathmandu</td>
+<td><button class="btn apply-btn" onclick="applyNow()">Apply</button></td>
+</tr>
+
+<tr>
+<td>25</td>
+<td>School - Administrative Assistant</td>
+<td>20,000–30,000</td>
+<td>8 AM–4 PM</td>
+<td>Tokha, Kathmandu</td>
+<td><button class="btn apply-btn" onclick="applyNow()">Apply</button></td>
+</tr>
+
+<tr>
+<td>26</td>
+<td>E-Commerce - Packing Assistant</td>
+<td>18,000–28,000</td>
+<td>9 AM–6 PM</td>
+<td>Kapan, Kathmandu</td>
+<td><button class="btn apply-btn" onclick="applyNow()">Apply</button></td>
+</tr>
+
+<tr>
+<td>27</td>
+<td>Telecom - Customer Support Trainee</td>
+<td>22,000–35,000</td>
+<td>Shift Basis</td>
+<td>Pepsicola, Kathmandu</td>
+<td><button class="btn apply-btn" onclick="applyNow()">Apply</button></td>
+</tr>
+
+<tr>
+<td>28</td>
+<td>Printing - Print Shop Assistant</td>
+<td>18,000–28,000</td>
+<td>9 AM–6 PM</td>
+<td>Samakhusi, Kathmandu</td>
+<td><button class="btn apply-btn" onclick="applyNow()">Apply</button></td>
+</tr>
+
+<tr>
+<td>29</td>
+<td>Electronics - Sales Trainee</td>
+<td>22,000–35,000</td>
+<td>10 AM–6 PM</td>
+<td>Sukedhara, Kathmandu</td>
+<td><button class="btn apply-btn" onclick="applyNow()">Apply</button></td>
+</tr>
+
+<tr>
+<td>30</td>
+<td>Real Estate - Office Support Staff</td>
+<td>20,000–30,000</td>
+<td>9 AM–5 PM</td>
+<td>Naxal, Kathmandu</td>
+<td><button class="btn apply-btn" onclick="applyNow()">Apply</button></td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<footer>
+
+<h3>Global Career Connect Nepal</h3>
+
+<p>
+© 2026 Kathmandu Freshers Jobs Portal. All Rights Reserved.Global Career Connect Nepal
+</p>
+
+<p>
+Disclaimer: Job information is provided for career guidance.
+Applicants should verify employer details before applying.
+</p>
+
+</footer>
+
+<button class="topBtn" id="topBtn">↑</button>
+
+<script>
+
+window.onload=function(){
+setTimeout(()=>{
+document.getElementById("loader").style.display="none";
+},1500);
+}
+
+function toggleTheme(){
+document.body.classList.toggle("dark");
+}
+
+function applyNow(){
+
+document.getElementById("toast").style.display="block";
+
+setTimeout(()=>{
+window.location.href="pay.html";
+},1000);
+}
+
+function filterJobs(type){
+
+let cards=document.querySelectorAll(".job-card");
+
+cards.forEach(card=>{
+
+if(type==="all"){
+card.style.display="block";
+}
+else{
+card.style.display=card.classList.contains(type)
+? "block":"none";
+}
+
+});
+
+}
+
+document.getElementById("searchInput").addEventListener("keyup",function(){
+
+let value=this.value.toLowerCase();
+
+document.querySelectorAll(".job-card").forEach(card=>{
+
+let text=card.innerText.toLowerCase();
+
+card.style.display=text.includes(value)
+? "block":"none";
+
+});
+
+});
+
+let topBtn=document.getElementById("topBtn");
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>300){
+topBtn.style.display="block";
+}
+else{
+topBtn.style.display="none";
+}
+
+});
+
+topBtn.onclick=()=>{
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+};
+
+</script>
+
+</body>
+</html>
